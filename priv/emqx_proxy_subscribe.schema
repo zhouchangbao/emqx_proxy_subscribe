@@ -1,0 +1,3 @@
+{mapping, "proxy.http.url", "emqx_proxy_subscribe.http_url", [
+  {datatype, string}
+]}.
