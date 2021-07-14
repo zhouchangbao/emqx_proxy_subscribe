@@ -2,7 +2,6 @@
 
 -include("emqx.hrl").
 -include("emqx_mqtt.hrl").
--include_lib("logger.hrl").
 
 -export([load/1
   , unload/0
@@ -21,7 +20,6 @@ on_client_connected(#{clientid := ClientId, username := UserName}, ConnInfo, _En
     Qos = maps:get(<<"qos">>, X),
     Topic = maps:get(<<"topic">>, X),
     {Topic, #{qos => Qos}} end, TopicList),
-  ?LOG(info, "_ConnInfo to read ~p, ~p", [ClientId, TopicFilters]),
   self() ! {subscribe, TopicFilters}.
 
 
